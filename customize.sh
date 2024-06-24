@@ -10,7 +10,7 @@ PROPFILE=false
 POSTFSDATA=false
 LATESTARTSERVICE=true
 # 𝐒𝐊𝐈𝐏 𝐔𝐍𝐙𝐈𝐏
-#SKIPUNZIP=0
+# SKIPUNZIP=0
 # 𝐒𝐄𝐓 𝐏𝐄𝐑𝐌𝐈𝐒𝐒𝐈𝐎𝐍𝐒
 set_perm_recursive $MODPATH 0 0 0771 0755
 
@@ -39,13 +39,7 @@ KERNEL=" $(uname -r) "
 SDK=" $API "
 SECURITY_PATCH=" $(getprop ro.build.version.security_patch) "
 SYSTEM_STRUCTURE=" $ARCH "
-MAGISK_INSTALL="𝗠𝗮𝗴𝗶𝘀𝗸 𝘃𝗲𝗿𝘀𝗶𝗼𝗻 𝗰𝗵𝗲𝗰𝗸.. "
-MAGISK=" $MAGISK_VER "
-MAGISK_CODE=" $MAGISK_VER_CODE "
-KSU_INSTALL="𝗞𝗦𝗨 𝘃𝗲𝗿𝘀𝗶𝗼𝗻 𝗰𝗵𝗲𝗰𝗸.. "
-KSU=" $KSU_VER "
-KSU_CODE=" $KSU_VER_CODE "
-KSU_KERNEL_VER_CODE=" $KSU_KERNEL_VER_CODE "
+ROOT="𝗚𝗲𝘁𝘁𝗶𝗻𝗴 𝘆𝗼𝘂𝗿 𝗿𝗼𝗼𝘁 𝗶𝗻𝗳𝗼.. "
 
 # 𝐔𝐈 𝐏𝐑𝐈𝐍𝐓
 sleep 2
@@ -111,24 +105,21 @@ echo "× 𝗔𝗥𝗖𝗛 =$SYSTEM_STRUCTURE "
 sleep 1
 echo " "
 
-# 𝐊𝐒𝐔 𝐈𝐍𝐅𝐎
+# 𝐊𝐒𝐔 𝐈𝐍𝐅𝐎 + 𝐌𝐀𝐆𝐈𝐒𝐊 𝐈𝐍𝐅𝐎
+echo "× $ROOT "
+sleep 2
 if [ "$KSU" == true ]; then
-echo "× $KSU_INSTALL "
-sleep 2
-echo "× 𝗞𝗦𝗨 𝗩𝗘𝗥𝗦𝗜𝗢𝗡 =$KSU "
+echo "× 𝗞𝗦𝗨 𝗩𝗘𝗥𝗦𝗜𝗢𝗡 = $KSU_VER "
 sleep 1
-echo "× 𝗞𝗦𝗨 𝗩𝗘𝗥 𝗖𝗢𝗗𝗘 =$KSU_CODE "
+echo "× 𝗞𝗦𝗨 𝗩𝗘𝗥 𝗖𝗢𝗗𝗘 = $KSU_VER_CODE "
 sleep 1
-echo "× 𝗞𝗦𝗨 𝗞𝗘𝗥𝗡𝗘𝗟 𝗩𝗘𝗥 𝗖𝗢𝗗𝗘 =$KSU_KERNEL_VER_CODE "
+echo "× 𝗞𝗦𝗨 𝗞𝗘𝗥𝗡𝗘𝗟 𝗩𝗘𝗥 𝗖𝗢𝗗𝗘 = $KSU_KERNEL_VER_CODE "
 else
-
-# 𝐌𝐀𝐆𝐈𝐒𝐊 𝐈𝐍𝐅𝐎
-echo "× $MAGISK_INSTALL "
-sleep 2
-echo "× 𝗠𝗔𝗚𝗜𝗦𝗞 𝗩𝗘𝗥𝗦𝗜𝗢𝗡 =$MAGISK "
+echo "× 𝗠𝗔𝗚𝗜𝗦𝗞 𝗩𝗘𝗥𝗦𝗜𝗢𝗡 = $MAGISK_VER "
 sleep 1
-echo "× 𝗠𝗔𝗚𝗜𝗦𝗞 𝗩𝗘𝗥 𝗖𝗢𝗗𝗘 =$MAGISK_CODE "
+echo "× 𝗠𝗔𝗚𝗜𝗦𝗞 𝗩𝗘𝗥 𝗖𝗢𝗗𝗘 = $MAGISK_VER_CODE "
 fi
+
 sleep 1
 
 # 𝐄𝐗𝐓𝐑𝐀𝐂𝐓𝐈𝐍𝐆
@@ -142,36 +133,8 @@ sleep 1
 
 # 𝐃𝐄𝐋𝐄𝐓𝐈𝐍𝐆 𝐂𝐀𝐂𝐇𝐄
 echo "× 𝗗𝗲𝗹𝗲𝘁𝗶𝗻𝗴 𝗽𝗮𝗰𝗸𝗮𝗴𝗲 𝗰𝗮𝗰𝗵𝗲.. "
-rm -rf /data/dalvik-cache
-rm -rf /storage/emulated/0/Andorid/*/cache
-rm -rf /data/system/cache/*
-rm -rf /data/vendor/cache/*
-rm -rf /data/misc/cache/*
-rm -rf /data/system/package_cache/*
-rm -rf /cache/*
-rm -rf /data/resource-cache/*
-rm -rf `find /data/app/* -name "*.art"`
-find /data -type f -name "*.bak" -exec rm -vf {} +
-find /data/ -type f -name "*.log" -exec rm -vf {} +
-find /data/ -type f -name "*shader" -exec rm -vf {} +
-find /data/ -type f -name "*shader_cache" -exec rm -vf {} +
-find /data/data -type f -name "gms" -exec rm -vf {} +
-find /data/app/ -type f -name "*.art" -exec rm {} +
-find /data/data/*/cache/* -delete &>/dev/null
-find /data/data/*/code_cache/* -delete &>/dev/null
-find /data/data/*/files/log/*.log -delete &>/dev/null
-find /data/data/*/cache/*/*/*.log -delete &>/dev/null
-find /data/data/*/cache/logs/*/*.log -delete &>/dev/null
-find /data/data/*/*/*/*.log -delete &>/dev/null
-find /data/data/*/*/*.log -delete &>/dev/null
-find /data/user_de/*/*/cache/* -delete &>/dev/null
-find /data/user_de/*/*/code_cache/* -delete &>/dev/null
-find /data/adb/modules/*/*.log -delete &>/dev/null
-find /data/media/0/Android/media/*/*/.shared/*.tmp -delete &>/dev/null
-find /storage/emulated/0/ -type f -name "*.nomedia" -exec rm -vf {} +
-find /storage/emulated/0/ -name "*.thumbnails" -exec rm -vf {} +
-find /storage/emulated/0/ \( -type f -o -type d \) -name '*cache*' -exec rm -rf {} +
-find /sdcard/Android/data/*/cache/* -delete &>/dev/null
+find /storage/*/*/Android/data/*/cache/* -delete &>/dev/null
+find /storage/*/ -type d -empty -delete
 echo "× 𝗗𝗼𝗻𝗲.."
 sleep 1
 
