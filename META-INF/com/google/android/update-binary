@@ -20,7 +20,7 @@ require_new_magisk() {
 }
 
 is_legacy_script() {
-  unzip -l "$ZIPFILE" install.sh | grep -q install.sh
+  unzip -l "$ZIPFILE" customize.sh | grep -q customize.sh
   return $?
 }
 
@@ -84,7 +84,7 @@ if is_legacy_script; then
   unzip -oj "$ZIPFILE" module.prop customize.sh uninstall.sh 'common/*' -d $TMPDIR >&2
 
   # Load install script
-  . $TMPDIR/install.sh
+  . $TMPDIR/customize.sh
 
   # Callbacks
   print_modname

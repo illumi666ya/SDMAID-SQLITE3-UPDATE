@@ -1,8 +1,8 @@
 id=SDMAID
 name=Sdmaid sqlite3 update
-version=V2-STABLE
-versionCode=2
+version=V3-STABLE
+versionCode=3
 author=ILLUMI
-description=SDMaid Sqlite3 Updater for arm64 devices (3.45.2).
+description=SDMaid Sqlite3 Updater for arm64 devices (3.46.1).
 support=https://bento.me/illumi
 donate=https://www.paypal.com/paypalme/faniadittiya
